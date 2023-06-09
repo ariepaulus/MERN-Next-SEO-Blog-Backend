@@ -1,0 +1,37 @@
+{
+  "name": "seo-blog-backend",
+  "version": "1.0.0",
+  "description": "An updated (2023) node express backend for Ryan Dhungel's MERN-SEO-Blog",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Arie Verburgh",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.1",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "express-validator": "^7.0.1",
+    "formidable": "^2.1.1",
+    "google-auth-library": "^8.8.0",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.2.2",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0",
+    "shortid": "^2.2.16",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": "19.9.0"
+  }
+}
