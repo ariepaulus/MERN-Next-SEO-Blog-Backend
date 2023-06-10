@@ -64,14 +64,29 @@ exports.update = async (req, res) => {
       });
     }
     let user = req.profile;
-    //* Update fields that have been changed
-    user = _.extend(user, fields);
+
+    //* User's existing role and email before update
+    let existingRole = user.role;
+    let existingEmail = user.email;
+
+    if (fields && fields.username && fields.username.length > 12) {
+      return res.status(400).json({
+        error: 'Username should not be longer than 12 characters!',
+      });
+    }
 
     if (fields.password && fields.password.length < 6) {
       return res.status(400).json({
         error: 'Password should be at least six characters long!',
       });
     }
+
+    //* Update fields that have been changed
+    user = _.extend(user, fields);
+
+    //* User's role and email cannot be changed
+    user.role = existingRole;
+    user.email = existingEmail;
 
     if (files.photo) {
       if (files.photo.size > 1000000) {
